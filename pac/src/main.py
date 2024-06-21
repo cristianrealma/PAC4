@@ -10,7 +10,12 @@ from data_processing import (
     groupby_state_and_year,
     print_biggest_handguns,
     print_biggest_longguns,
-    time_evolution
+    time_evolution,
+    groupby_state,
+    clean_states,
+    merge_datasets,
+    calculate_relative_values,
+    analyze_data
 )
 
 def main():
@@ -25,6 +30,11 @@ def main():
     parser.add_argument('--print_biggest_handguns', type=str, help='Imprimeix l\'estat i l\'any amb el nombre més gran de hand_guns')
     parser.add_argument('--print_biggest_longguns', type=str, help='Imprimeix l\'estat i l\'any amb el nombre més gran de long_guns')
     parser.add_argument('--time_evolution', type=str, help='Crea un gràfic amb l\'evolució temporal de permit, handgun i long_gun')
+    parser.add_argument('--groupby_state', type=str, help='Agrupa el dataframe per estat')
+    parser.add_argument('--clean_states', type=str, help='Elimina estats no necessaris')
+    parser.add_argument('--merge_datasets', type=str, nargs=2, help='Fusiona dos datasets')
+    parser.add_argument('--calculate_relative_values', type=str, help='Calcula els valors relatius')
+    parser.add_argument('--analyze_data', type=str, help='Analitza les dades agrupades i calculades')
 
     args = parser.parse_args()
 
@@ -76,6 +86,36 @@ def main():
         df_cleaned = breakdown_date(df)
         df_cleaned = erase_month(df_cleaned)
         time_evolution(df_cleaned)
+
+    if args.all or args.groupby_state:
+        if not args.all:
+            df = read_csv(args.groupby_state)
+        df_grouped_state = groupby_state(df_grouped)
+
+    if args.all or args.clean_states:
+        if not args.all:
+            df_grouped_state = read_csv(args.clean_states)
+        df_cleaned_states = clean_states(df_grouped_state)
+
+    if args.all or args.merge_datasets:
+        if args.merge_datasets:
+            filepath1, filepath2 = args.merge_datasets
+        else:
+            filepath1 = '../data/nics-firearm-background-checks.csv'
+            filepath2 = '../data/us-state-populations.csv'
+        df1 = read_csv(filepath1)
+        df2 = read_csv(filepath2)
+        df_merged = merge_datasets(df1, df2)
+
+    if args.all or args.calculate_relative_values:
+        if not args.all:
+            df_merged = read_csv(args.calculate_relative_values)
+        df_relative = calculate_relative_values(df_merged)
+
+    if args.all or args.analyze_data:
+        if not args.all:
+            df_relative = read_csv(args.analyze_data)
+        df_analyzed = analyze_data(df_relative)
 
 if __name__ == '__main__':
     main()
