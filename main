@@ -1,0 +1,22 @@
+# src/main.py
+
+import argparse
+from data_processing import read_csv
+
+def main():
+    parser = argparse.ArgumentParser(description="Anàlisi de dades d'ús d'armes de foc als EUA")
+    parser.add_argument('--all', action='store_true', help='Executa totes les funcions')
+    parser.add_argument('--read_csv', type=str, help='Llegeix un fitxer CSV des d\'una ruta de fitxer')
+
+    args = parser.parse_args()
+
+    if args.all or args.read_csv:
+        # Llegir el fitxer CSV
+        if args.read_csv:
+            filepath = args.read_csv
+        else:
+            filepath = '../data/nics-firearm-background-checks.csv'  # Substituir per la ruta correcta
+        firearm_data = read_csv(filepath)
+
+if __name__ == '__main__':
+    main()
