@@ -21,3 +21,37 @@ def read_csv(filepath):
     print(df.info())
     return df
 
+def clean_csv(df):
+    """
+    Neteja el dataset inicial, eliminant totes les columnes excepte les necessàries.
+
+    Parameters:
+    df (pd.DataFrame): DataFrame original.
+
+    Returns:
+    pd.DataFrame: DataFrame netejat contenint únicament les columnes necessàries.
+
+    Mostra per pantalla el nom de totes les columnes del dataframe.
+    """
+    columns_to_keep = ['month', 'state', 'permit', 'handgun', 'long_gun']
+    df_cleaned = df[columns_to_keep]
+    print("Noms de les columnes després de la neteja:")
+    print(df_cleaned.columns)
+    return df_cleaned
+
+def rename_col(df):
+    """
+    Canvia el nom de la columna 'longgun' per 'long_gun'.
+
+    Parameters:
+    df (pd.DataFrame): DataFrame original.
+
+    Returns:
+    pd.DataFrame: DataFrame amb el nom de la columna canviat.
+
+    Mostra per pantalla el nom de totes les columnes del dataframe.
+    """
+    df_renamed = df.rename(columns={'longgun': 'long_gun'})
+    print("Noms de les columnes després de canviar el nom:")
+    print(df_renamed.columns)
+    return df_renamed
