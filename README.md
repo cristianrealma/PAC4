@@ -1,3 +1,7 @@
+## Context
+
+Els elements d'aquest repositori constitueixen la resposta a la PAC 4 de l'assignatura *Programació per a la ciència de dades* del *Màster en Ciència de Dades* de la [Universitat Oberta de Catalunya](https://www.uoc.edu/portal/ca/index.html) (UOC), corresponent al segon semestre del curs 2023-2024.
+
 # Anàlisi d'Ús d'Armes de Foc als EUA
 
 Aquest projecte analitza les dades de verificacions d'antecedents per obtenir permisos d'armes de foc als EUA.
