@@ -36,6 +36,18 @@ matplotlib
 Podeu instal·lar-les amb pip:
 pip install pandas argparse matplotlib
 
+### Requeriments
+- Python 3.x
+- Pandas
+- Folium
+- Selenium
+- Pillow
+- Chrome WebDriver
+
+## Instal·lació de dependències
+
+```bash
+pip install pandas folium selenium pillow
 
 ## Execució
 
