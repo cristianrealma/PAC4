@@ -43,6 +43,8 @@ Per executar funcions específiques:
 python src/main.py --read_csv data/nics-firearm-background-checks.csv
 python src/main.py --clean_csv data/nics-firearm-background-checks.csv
 python src/main.py --rename_col data/nics-firearm-background-checks.csv
+python src/main.py --breakdown_date data/nics-firearm-background-checks.csv
+python src/main.py --erase_month data/nics-firearm-background-checks.csv
 
 ## Tests
 
