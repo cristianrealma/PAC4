@@ -5,6 +5,9 @@ Aquest projecte analitza les dades de verificacions d'antecedents per obtenir pe
 ## Estructura del Projecte
 
 # Repositori
+Aquest projecte es troba en aquest ripositori i té l'estructura següent:
+```bash
+
 project/
 │
 ├── data/
@@ -18,4 +21,5 @@ project/
 │
 ├── README.md
 └── requirements.txt
+```
 
