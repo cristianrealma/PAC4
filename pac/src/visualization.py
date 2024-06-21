@@ -1,4 +1,3 @@
-
 import folium
 import pandas as pd
 import json
@@ -16,7 +15,7 @@ def create_choropleth(data, column, name, file_name):
         name (str): Nom per a la llegenda del mapa.
         file_name (str): Nom del fitxer per guardar el mapa com a imatge.
     """
-    with open('path_to_us_states_json_file.json') as f:
+    with open('us-states.json') as f:
         geo_json_data = json.load(f)
 
     m = folium.Map(location=[37.8, -96], zoom_start=4)
