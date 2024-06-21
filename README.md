@@ -10,13 +10,13 @@ Aquest projecte es troba en aquest ripositori i té l'estructura següent:
 project/
 │
 ├── data/
-│   ├── nics-firearm-background-checks.csv  
-│   └── us-state-populations.csv            
+│ ├── nics-firearm-background-checks.csv
+│ └── us-state-populations.csv
 │
 ├── src/
-│   ├── __init__.py
-│   ├── data_processing.py
-│   ├── main.py
+│ ├── init.py
+│ ├── data_processing.py
+│ ├── main.py
 │
 ├── README.md
 └── requirements.txt
