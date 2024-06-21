@@ -31,9 +31,10 @@ project/
 Per executar aquest projecte, necessiteu instal·lar les següents llibreries de Python:
 pandas
 argparse
+matplotlib
 
 Podeu instal·lar-les amb pip:
-pip install pandas argparse
+pip install pandas argparse matplotlib
 
 
 ## Execució
@@ -53,6 +54,11 @@ python src/main.py --groupby_state_and_year data/nics-firearm-background-checks.
 python src/main.py --print_biggest_handguns data/nics-firearm-background-checks.csv
 python src/main.py --print_biggest_longguns data/nics-firearm-background-checks.csv
 python src/main.py --time_evolution data/nics-firearm-background-checks.csv
+python src/main.py --groupby_state data/nics-firearm-background-checks.csv
+python src/main.py --clean_states data/nics-firearm-background-checks.csv
+python src/main.py --merge_datasets data/nics-firearm-background-checks.csv data/us-state-populations.csv
+python src/main.py --calculate_relative_values data/nics-firearm-background-checks.csv
+python src/main.py --analyze_data data/nics-firearm-background-checks.csv
 
 ## Tests
 
