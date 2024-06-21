@@ -9,7 +9,8 @@ from data_processing import (
     erase_month,
     groupby_state_and_year,
     print_biggest_handguns,
-    print_biggest_longguns
+    print_biggest_longguns,
+    time_evolution
 )
 
 def main():
@@ -23,6 +24,7 @@ def main():
     parser.add_argument('--groupby_state_and_year', type=str, help='Agrupa el dataframe per estat i any')
     parser.add_argument('--print_biggest_handguns', type=str, help='Imprimeix l\'estat i l\'any amb el nombre més gran de hand_guns')
     parser.add_argument('--print_biggest_longguns', type=str, help='Imprimeix l\'estat i l\'any amb el nombre més gran de long_guns')
+    parser.add_argument('--time_evolution', type=str, help='Crea un gràfic amb l\'evolució temporal de permit, handgun i long_gun')
 
     args = parser.parse_args()
 
@@ -67,6 +69,13 @@ def main():
         if not args.all:
             df_grouped = groupby_state_and_year(read_csv(args.print_biggest_longguns))
         print_biggest_longguns(df_grouped)
+
+    if args.all or args.time_evolution:
+        if not args.all:
+            df = read_csv(args.time_evolution)
+        df_cleaned = breakdown_date(df)
+        df_cleaned = erase_month(df_cleaned)
+        time_evolution(df_cleaned)
 
 if __name__ == '__main__':
     main()
