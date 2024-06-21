@@ -1,77 +1,30 @@
 # src/data_processing.py
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
-def read_csv(filepath):
-    df = pd.read_csv(filepath)
-    print("Les cinc primeres files del DataFrame:")
-    print(df.head())
-    print("\nInformació del DataFrame:")
-    print(df.info())
-    return df
+# ... altres funcions ...
 
-def clean_csv(df):
-    columns_to_keep = ['month', 'state', 'permit', 'handgun', 'long_gun']
-    df_cleaned = df[columns_to_keep]
-    print("Noms de les columnes després de la neteja:")
-    print(df_cleaned.columns)
-    return df_cleaned
-
-def rename_col(df):
-    df_renamed = df.rename(columns={'longgun': 'long_gun'})
-    print("Noms de les columnes després de canviar el nom:")
-    print(df_renamed.columns)
-    return df_renamed
-
-def breakdown_date(df):
-    df[['year', 'month']] = df['month'].str.split('-', expand=True).astype(int)
-    print("Les cinc primeres files després de dividir la columna month:")
-    print(df.head())
-    return df
-
-def erase_month(df):
-    df = df.drop(columns=['month'])
-    print("Les cinc primeres files després d'eliminar la columna month:")
-    print(df.head())
-    print("Noms de les columnes després d'eliminar la columna month:")
-    print(df.columns)
-    return df
-
-def groupby_state_and_year(df):
+def time_evolution(df):
     """
-    Agrupa el dataframe per estat i any, i calcula els valors acumulats totals per cada grup.
+    Crea un gràfic que mostra l'evolució temporal de permit, hand_gun i long_gun per any.
 
     Parameters:
-    df (pd.DataFrame): DataFrame original amb les columnes year i state.
-
-    Returns:
-    pd.DataFrame: DataFrame amb les dades agrupades per estat i any.
-    """
-    df_grouped = df.groupby(['state', 'year']).sum().reset_index()
-    return df_grouped
-
-def print_biggest_handguns(df):
-    """
-    Imprimeix l'estat i l'any amb el nombre més gran de hand_guns.
-
-    Parameters:
-    df (pd.DataFrame): DataFrame agrupat per estat i any.
+    df (pd.DataFrame): DataFrame amb les dades a agrupar per any.
 
     Returns:
     None
     """
-    max_handguns = df.loc[df['handgun'].idxmax()]
-    print(f"El nombre més gran de hand_guns es va registrar a l'estat {max_handguns['state']} l'any {max_handguns['year']} amb {max_handguns['handgun']} peticions.")
+    df_grouped = df.groupby('year').sum().reset_index()
 
-def print_biggest_longguns(df):
-    """
-    Imprimeix l'estat i l'any amb el nombre més gran de long_guns.
+    plt.figure(figsize=(12, 6))
+    plt.plot(df_grouped['year'], df_grouped['permit'], label='Permit', marker='o')
+    plt.plot(df_grouped['year'], df_grouped['handgun'], label='Handgun', marker='o')
+    plt.plot(df_grouped['year'], df_grouped['long_gun'], label='Long Gun', marker='o')
 
-    Parameters:
-    df (pd.DataFrame): DataFrame agrupat per estat i any.
-
-    Returns:
-    None
-    """
-    max_longguns = df.loc[df['long_gun'].idxmax()]
-    print(f"El nombre més gran de long_guns es va registrar a l'estat {max_longguns['state']} l'any {max_longguns['year']} amb {max_longguns['long_gun']} peticions.")
+    plt.xlabel('Year')
+    plt.ylabel('Number of Checks')
+    plt.title('Time Evolution of Firearm Background Checks in the USA')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
