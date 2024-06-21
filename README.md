@@ -52,6 +52,7 @@ python src/main.py --erase_month data/nics-firearm-background-checks.csv
 python src/main.py --groupby_state_and_year data/nics-firearm-background-checks.csv
 python src/main.py --print_biggest_handguns data/nics-firearm-background-checks.csv
 python src/main.py --print_biggest_longguns data/nics-firearm-background-checks.csv
+python src/main.py --time_evolution data/nics-firearm-background-checks.csv
 
 ## Tests
 
