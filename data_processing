@@ -55,3 +55,39 @@ def rename_col(df):
     print("Noms de les columnes després de canviar el nom:")
     print(df_renamed.columns)
     return df_renamed
+
+def breakdown_date(df):
+    """
+    Divideix la informació que hi ha a la columna month creant dues noves columnes: year i month.
+
+    Parameters:
+    df (pd.DataFrame): DataFrame original amb la columna month.
+
+    Returns:
+    pd.DataFrame: DataFrame amb les columnes year i month separades.
+
+    Mostra per pantalla les cinc primeres files del dataframe resultant.
+    """
+    df[['year', 'month']] = df['month'].str.split('-', expand=True).astype(int)
+    print("Les cinc primeres files després de dividir la columna month:")
+    print(df.head())
+    return df
+
+def erase_month(df):
+    """
+    Elimina la columna month del DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): DataFrame original amb la columna month.
+
+    Returns:
+    pd.DataFrame: DataFrame sense la columna month.
+
+    Mostra per pantalla les cinc primeres files i el nom de totes les columnes del dataframe.
+    """
+    df = df.drop(columns=['month'])
+    print("Les cinc primeres files després d'eliminar la columna month:")
+    print(df.head())
+    print("Noms de les columnes després d'eliminar la columna month:")
+    print(df.columns)
+    return df
