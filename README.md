@@ -60,5 +60,7 @@ Actualment, no hi ha tests definits. Podeu afegir tests en el directori `tests` 
 
 pytest tests/
 
+## Comentaris
 
+Comentari del l'exercici 4.2: el gràfic generat mostrarà l'evolució temporal del nombre de permisos, pistoles i rifles d'assalt registrats als EUA des del 1998 fins al 2020. Podreu observar tendències ascendent o descendent en les dades, així com canvis durant períodes específics com la pandèmia del 2020.
 
