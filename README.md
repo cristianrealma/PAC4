@@ -46,7 +46,7 @@ pip install pandas argparse matplotlib
 
 ## Instal·lació de dependències
 
-```bash
+
 pip install pandas folium selenium pillow
 
 ## Execució
