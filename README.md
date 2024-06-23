@@ -1,6 +1,6 @@
 ## Context
 
-Els elements d'aquest repositori constitueixen la resposta a la PAC 4 de l'assignatura *Programació per a la ciència de dades* del *Màster en Ciència de Dades* de la [Universitat Oberta de Catalunya](https://www.uoc.edu/portal/ca/index.html) (UOC), corresponent al segon semestre del curs 2023-2024.
+Els elements d'aquest repositori constitueixen la resposta a la PAC 4 de l'assignatura *Programació per a la ciència de dades* del *Màster en Ciència de Dades* de la [Universitat Oberta de Catalunya](https://www.uoc.edu/portal/ca/index.html) (UOC), corresponent al curs 2023-2024.
 
 # Anàlisi d'Ús d'Armes de Foc als EUA
 
@@ -15,17 +15,30 @@ pac/
 │
 ├── data/
 │ ├── nics-firearm-background-checks.csv
-│ └── us-state-populations.csv
+│ ├── us-state-populations.csv
+│ └── us-state.json
 │
 ├── src/
-│ ├── init.py
+│ ├── __init__.py
 │ ├── data_processing.py
 │ ├── main.py
+│ └── visualization.py
 │
+├── LICENSE.txt
 ├── README.md
-└── requirements.txt
+├── requirements.txt
 ```
 
+### Instruccions per executar *main.py*
+
+1. `Cal obrir un terminal i situar-se al directori destinat al projecte`
+2. `git clone https://github.com/cristianrealma/PAC4.git`
+3. `cd ./aprenent-python/pac`
+4. `Crear un entorn virtual i activar-lo`
+5. `pip install -r requirements.txt`
+6. `python3 ./main.py`&emsp;&emsp;&emsp;
+
+   
 ## Requisits
 
 Per executar aquest projecte, necessiteu instal·lar les següents llibreries de Python:
@@ -73,8 +86,6 @@ python src/main.py --calculate_relative_values data/nics-firearm-background-chec
 python src/main.py --analyze_data data/nics-firearm-background-checks.csv
 
 ## Tests
-
-Actualment, no hi ha tests definits. Podeu afegir tests en el directori `tests` i utilitzar `pytest` per executar-los.
 
 pytest tests/
 
