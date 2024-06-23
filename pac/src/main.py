@@ -1,4 +1,4 @@
-# main.py
+
 import argparse
 from data_processing import read_csv, clean_csv, rename_col, breakdown_date, erase_month, groupby_state_and_year, print_biggest_handguns, print_biggest_longguns, groupby_state, clean_states, merge_datasets, calculate_relative_values
 from visualization import generate_maps
