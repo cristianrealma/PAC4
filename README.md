@@ -11,7 +11,7 @@ Aquest projecte analitza les dades de verificacions d'antecedents per obtenir pe
 Aquest projecte es troba en aquest ripositori i té l'estructura següent:
 ```bash
 
-project/
+pac/
 │
 ├── data/
 │ ├── nics-firearm-background-checks.csv
